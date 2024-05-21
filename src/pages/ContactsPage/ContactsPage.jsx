@@ -7,16 +7,17 @@ import ContactList from "../../components/ContactList/ContactList";
 import css from "./ContactsPage.module.css";
 import BackgroundImage from "../../components/BackgroundImage/BackgroundImage";
 import AnimatedCursor from "react-animated-cursor";
+import { selectError, selectLoading } from "../../redux/contacts/selectors";
 
-const ContactsPage = () => {
+export default function Tasks() {
   const dispatch = useDispatch();
-  const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
+  const isLoading = useSelector(selectLoading);
+  const error = useSelector(selectError);
 
   useEffect(() => {
-    if (isLoggedIn) {
-      dispatch(fetchContacts());
-    }
-  }, [dispatch, isLoggedIn]);
+    dispatch(fetchContacts());
+  }, [dispatch]);
+
 
   return (
     <div className={css.containerMainContact}>
@@ -28,10 +29,10 @@ const ContactsPage = () => {
       </div>
       <div>
         <SearchBox />
+        {isLoading && !error && <b>Request is in progress</b>}
         <ContactList />
       </div>
     </div>
   );
 };
 
-export default ContactsPage;
