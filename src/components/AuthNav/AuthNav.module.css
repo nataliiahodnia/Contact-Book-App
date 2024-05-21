@@ -1,0 +1,44 @@
+.containerAuth {
+  padding-top: 10px;
+}
+
+.link,
+.button {
+  font-family: "Courier New", Courier, monospace; 
+  padding: 12px 20px;
+  margin: 0 10px;
+  text-decoration: none;
+  color: var(--white-text-color);
+  font-weight: bold;
+  border-radius: 8px;
+  background: var(--dark-grey-color);
+  border: none;
+  position: relative;
+  overflow: hidden;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.link::after,
+.button::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  background: var(--white-text-color); 
+  opacity: 0;
+  transition: opacity 0.3s, box-shadow 0.3s;
+  z-index: -1;
+}
+
+.link:hover,
+.button:hover,
+.link.active,
+.button.active {
+  background-color: var(--dark-red-color); 
+  color: var(--white-text-color);
+  transform: translateY(-2px) rotate(20deg); 
+  transition: transform 0.5s;
+}

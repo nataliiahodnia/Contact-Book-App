@@ -1,0 +1,97 @@
+.inputSearch {
+  border-radius: 15px;
+  border: 2px solid var(--dark-grey-color);
+  width: 350px;
+  padding: 10px;
+  font-size: 16px;
+  transition: border-color 0.3s, box-shadow 0.3s, width 0.3s;
+  position: relative;
+  margin-bottom: 50px;
+  color: #1a1a1a;
+  animation: _moveInput_86f6s_1 5s infinite alternate,
+    _rotateInput_86f6s_1 5s infinite alternate;
+}
+
+.inputSearch:focus {
+  outline: none;
+  border-color: var(--dark-grey-color);
+  width: 270px;
+}
+
+.inputSearch::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: var(--dark-grey-color);
+  opacity: 0;
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    width: 20px;
+    height: 20px;
+    opacity: 0.5;
+  }
+  50% {
+    width: 30px;
+    height: 30px;
+    opacity: 0.2;
+  }
+  100% {
+    width: 20px;
+    height: 20px;
+    opacity: 0;
+  }
+}
+
+@keyframes moveInput {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(100px);
+  }
+}
+
+@keyframes rotateInput {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(5deg);
+  }
+}
+
+p {
+  color: var(--dark-grey-color);
+}
+
+.label {
+  color: var(--dark-grey-color);
+  font-size: 30px;
+  font-weight: 700;
+  animation: horrorEffect 3s ease-in-out infinite;
+  position: relative;
+}
+
+@keyframes horrorEffect {
+  0%,
+  100% {
+    text-shadow: 2px 2px 0px var(--dark-red-color) 0,
+      -2px -2px 0px var(--dark-grey-color);
+    transform: translate(0, 0);
+  }
+  50% {
+    text-shadow: 4px 4px 20px var(--dark-red-color),
+      -4px -4px 20px var(--dark-grey-color);
+    transform: translate(-1px, -5px) rotate(-1deg);
+  }
+}

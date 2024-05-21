@@ -1,0 +1,31 @@
+@keyframes move {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  25% {
+    transform: translateY(-5px) scale(1.1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateY(5px) scale(1.2);
+    opacity: 0.6;
+  }
+  75% {
+    transform: translateY(-5px) scale(1.1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+h1 span {
+  display: inline-block;
+  animation: move 1s infinite;
+}
+
+h1 {
+  margin-left: 15px;
+}

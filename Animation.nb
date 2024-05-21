@@ -1,0 +1,23 @@
+.mainTitle {
+  color: var(--dark-grey-color);
+  font-size: 48px;
+  animation: creepySlide 10s ease-in-out infinite; /* Apply creepy slide animation */
+}
+
+@keyframes creepySlide {
+  0% {
+    transform: translateY(-10%);
+    filter: blur(0); /* Start off-screen without blur */
+  }
+  50% {
+    transform: translateY(10%); /* Move slightly down */
+    filter: blur(6px); /* Blur the text */
+  }
+  100% {
+    transform: translateY(-10%);
+    transform: translateX(-10%);
+    filter: blur(0); /* Return to original position without blur */
+  }
+}
+
+

@@ -1,0 +1,122 @@
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(10px); 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 50;
+}
+
+.modalContent {
+  width: 400px;
+  color: var(--dark-grey-color); 
+  padding: 30px;
+  border-radius: 20px;
+  position: relative;
+  animation: modalAppear 2s ease-out; 
+}
+
+@keyframes modalAppear {
+  0% {
+    opacity: 0;
+    transform: scale(0.8) translateY(-200px) rotate(-10deg); 
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.1) translateY(10px) rotate(5deg); 
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0) rotate(0deg);
+  }
+}
+
+.btnNo,
+.btnOk {
+  padding: 10px 20px;
+  margin-right: 10px;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  font-weight: bold;
+  color: var(--white-text-color);
+}
+
+.btnOk {
+  background-color: var(--dark-red-color); 
+}
+
+.btnNo {
+  background-color: var(--dark-grey-color); 
+}
+
+.btnOk:hover,
+.btnNo:hover {
+  color: var(--white-text-color);
+  background-color: var(--hover-red-color); 
+  transform: scale(1.1); 
+}
+
+.icon {
+  color: var(--dark-red-color);
+  width: 40px;
+}
+
+.btnCont {
+  display: flex;
+  padding-top: 10px;
+  gap: 30px;
+  justify-content: center;
+}
+
+@keyframes buttonFlicker {
+  0%,
+  19%,
+  21%,
+  23%,
+  25%,
+  54%,
+  56%,
+  100% {
+    opacity: 1;
+  }
+  20%,
+  24%,
+  55% {
+    opacity: 0;
+  }
+}
+
+.btnOk:hover,
+.btnNo:hover {
+  animation: buttonFlicker 1.5s infinite;
+}
+
+.txt {
+  font-size: 24px;
+  color: var(--white-text-color);
+  font-weight: 200;
+  text-align: center;
+  animation: creepySlide 10s ease-in-out infinite; /* Apply creepy slide animation */
+}
+
+@keyframes creepySlide {
+  0% {
+    transform: translateY(-10%);
+    filter: blur(0); 
+  }
+  50% {
+    transform: translateY(10%); 
+    filter: blur(3px);
+  }
+  100% {
+    transform: translateY(-10%);
+    filter: blur(0); 
+  }
+}
