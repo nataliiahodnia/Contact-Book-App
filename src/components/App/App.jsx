@@ -1,9 +1,8 @@
 import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { Routes, Route } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import { refreshUser } from "../../redux/auth/authSlice";
-// import { getIsRefreshing } from "../../redux/auth/selectors";
 import HomePage from "../../pages/HomePage/HomePage";
 import LoginPage from "../../pages/LoginPage/LoginPage";
 import RegistrationPage from "../../pages/RegistrationPage/RegistrationPage";
