@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Routes, Route } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import { refreshUser } from "../../redux/auth/authSlice";
-import { getIsRefreshing } from "../../redux/auth/selectors";
+// import { getIsRefreshing } from "../../redux/auth/selectors";
 import HomePage from "../../pages/HomePage/HomePage";
 import LoginPage from "../../pages/LoginPage/LoginPage";
 import RegistrationPage from "../../pages/RegistrationPage/RegistrationPage";
@@ -12,20 +12,19 @@ import NotFoundPage from "../../pages/NotFoundPage/NotFoundPage";
 import PrivateRoute from "../../components/PrivateRoute/PrivateRoute";
 import RestrictedRoute from "../../components/RestrictedRoute/RestrictedRoute";
 import Layout from "../../components/Layout/Layout";
+import { useAuth } from "../../hooks";
 
-function App() {
+const App = () => {
   const dispatch = useDispatch();
-  const isRefreshing = useSelector(getIsRefreshing);
+  const { isRefreshing } = useAuth();
 
   useEffect(() => {
-    dispatch(refreshUser());
+  dispatch(refreshUser());
   }, [dispatch]);
 
-  if (isRefreshing) {
-    return <p>Loading...</p>;
-  }
-
-  return (
+  return isRefreshing ? (
+    <b>Refreshing user...</b>
+  ) : (
     <Layout>
       <Routes>
         <Route path="/" element={<HomePage />} />
@@ -57,6 +56,6 @@ function App() {
       />
     </Layout>
   );
-}
+};
 
-export default App;
+export default App; // Експорт за замовчуванням
