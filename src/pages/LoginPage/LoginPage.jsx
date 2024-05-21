@@ -1,17 +1,18 @@
-import LoginForm from "../../components/LoginForm/LoginForm";
-import { useNavigate } from "react-router-dom";
+import React from "react";
 import { useDispatch } from "react-redux";
 import { setUser } from "../../redux/auth/authSlice";
+import LoginForm from "../../components/LoginForm/LoginForm";
 import css from "../../components/LoginForm/LoginForm.module.css";
 import AnimatedCursor from "react-animated-cursor";
+import { Navigate } from "react-router-dom"; // Додаємо імпорт Navigate
 
 const LoginPage = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   const handleLoginSuccess = (userData) => {
     dispatch(setUser({ user: userData.user, token: userData.token }));
-    navigate("/contacts");
+    // history.push("/contacts"); // Закоментовуємо перенаправлення
+    return <Navigate to="/contacts" replace />; // Додаємо Navigate
   };
 
   return (

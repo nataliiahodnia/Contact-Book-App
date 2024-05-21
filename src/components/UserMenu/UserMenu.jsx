@@ -1,16 +1,16 @@
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom'; 
 import { logout } from '../../redux/auth/operations';
 import css from './UserMenu.module.css';
+import { Navigate } from 'react-router-dom'; 
 
 const UserMenu = () => {
   const dispatch = useDispatch();
   const user = useSelector(state => state.auth.user);
-  const navigate = useNavigate(); 
 
   const handleLogout = () => {
     dispatch(logout());
-    navigate('/login');
+    return <Navigate to="/login" />; 
   };
 
   if (!user) {

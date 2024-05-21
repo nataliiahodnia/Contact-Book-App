@@ -1,13 +1,14 @@
-import { Formik, Form, Field, ErrorMessage } from "formik";
-import * as Yup from "yup";
+import React from "react";
 import { useDispatch } from "react-redux";
 import { login } from "../../redux/auth/operations";
 import css from "./LoginForm.module.css";
-import { useNavigate } from "react-router-dom";
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import * as Yup from "yup";
 import { FaEnvelope, FaLock } from "react-icons/fa";
 import BackgroundImage from "../BackgroundImage/BackgroundImage";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Navigate } from "react-router-dom"; // Змінено імпорт
 
 const loginSchema = Yup.object({
   email: Yup.string().email("Invalid email").required("Email is required"),
@@ -18,7 +19,6 @@ const loginSchema = Yup.object({
 
 const LoginForm = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   return (
     <div className={css.formContainer}>
@@ -29,10 +29,10 @@ const LoginForm = () => {
         validationSchema={loginSchema}
         onSubmit={(values, { setSubmitting }) => {
           dispatch(login(values))
-            .then((response) => {
+            .then(() => {
               toast.success('🚀 Wow so easy!');
-              navigate("/contacts");
               setSubmitting(false);
+              return <Navigate to="/contacts" />; 
             })
             .catch((error) => {
               toast.error(
