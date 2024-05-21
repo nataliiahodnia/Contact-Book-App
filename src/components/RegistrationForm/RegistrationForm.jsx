@@ -33,7 +33,6 @@ const RegistrationForm = () => {
             dispatch(register(values))
               .then(() => {
               toast.success('🚀 Wow so easy!');
-              toast.success(' Wow so easy!');
                 navigate("/login");
                 setSubmitting(false);
               })

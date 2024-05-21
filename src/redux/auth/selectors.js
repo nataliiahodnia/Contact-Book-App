@@ -9,3 +9,5 @@ export const getToken = (state) => state.auth.token;
 
 // Селектор для перевірки, чи триває процес оновлення інформації користувача
 export const getIsRefreshing = (state) => state.auth.isRefreshing;
+
+
