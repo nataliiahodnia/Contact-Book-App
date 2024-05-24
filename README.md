@@ -14,4 +14,7 @@ Despite its spooky aesthetics,
 the Contact Book retains full functionality, enabling users to add, edit, 
 and delete contacts while immersing themselves in the supernatural world of vampires.
 
+### Technologies Used:
+- React
+- Redux
 
